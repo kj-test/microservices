@@ -1,0 +1,41 @@
+KAFKA / ZOOKeeper Commands - Windows
+------------------------------------
+
+Note: configure using - https://www.learningjournal.guru/article/kafka/installing-kafka-on-windows/
+
+Kafka download:
+https://www.apache.org/dyn/closer.cgi?path=/kafka/2.1.0/kafka_2.12-2.1.0.tgz
+
+Important - server.properties config changes are very important
+
+-- ZooKeeper (separate install)
+
+zkServer
+
+-- ZooKeeper (part of Kafka) -- not tested...
+zookeeper-server-start.bat F:\JAGAN\MicroServices\Kafka\config\zookeeper.properties
+
+
+
+-- Kafka
+
+kafka-server-start.bat F:\JAGAN\MicroServices\Kafka\config\server.properties
+
+-- Create Topic
+
+kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
+
+
+-- Producer / Consumer
+
+kafka-console-producer.bat --broker-list localhost:9092 --topic test
+
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic test --from-beginning
+
+
+
+
+
+
+
+
